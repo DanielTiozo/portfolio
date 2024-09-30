@@ -58,21 +58,26 @@ h2{
 }
 
 .tec{
-    display: flex;
     margin-bottom: 20px;
     width: 66vw;
+    height: 160px;
     overflow: hidden;
-    
+    white-space: nowrap;
+}
+
+.tec-imgs{
+    display: inline-block;
+    height: 160px;
+    animation: animated 10s linear infinite;
 }
 
 .skills{
     width: 150px;
-    animation: animated 4s linear infinite;
 }
 
 @keyframes animated {
     100%{
-        transform: translateX(-545%);
+        transform: translateX(-100%);
     }
 }
 
