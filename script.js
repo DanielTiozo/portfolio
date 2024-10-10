@@ -1,22 +1,24 @@
-var dev = document.getElementById('dev');
-var types = ['Web', 'Front End', 'JavaScript', 'React'];
+const dev = document.getElementById('dev');
+const types = ['Web', 'Front End', 'JavaScript', 'React'];
+const contact = document.querySelectorAll('.contact')
 
-function escrever(str, done) {
-    var char = str.split('').reverse();
-    var typer = setInterval(() =>  {
+
+function write(str, done) {
+    const char = str.split('').reverse();
+    let typer = setInterval(() =>  {
         if (!char.length) {
             clearInterval(typer);
             return setTimeout(done, 600);
         }
-        var next = char.pop();
+        let next = char.pop();
         dev.innerHTML += next;
     }, 140);
 }
 
-function limpar(done) {
-    var char = dev.innerHTML;
-    var nr = char.length;
-    var typer = setInterval(() =>  {
+function erase(done) {
+    const char = dev.innerHTML;
+    let nr = char.length;
+    const typer = setInterval(() =>  {
         if (nr-- == 0) {
             clearInterval(typer);
             return done();
@@ -25,16 +27,23 @@ function limpar(done) {
     }, 140);
 }
 
-function rodape(conteudos, el) {
-    var atual = -1;
-    function prox(cb){
+function typewrite(conteudos, el) {
+    let atual = -1;
+    const next = (cb) => {
         if (atual < conteudos.length - 1) atual++;
         else atual = 0;
-        var str = conteudos[atual];
-        escrever(str, () => {
-            limpar(prox);
+        const str = conteudos[atual];
+        write(str, () => {
+            erase(next);
         });
     }
-    prox(prox);
+    next(next);
 }
-rodape(types);
+typewrite(types);
+
+contact.forEach((string) =>{
+    string.addEventListener('mouseenter', () =>{
+        
+    })
+})
+
