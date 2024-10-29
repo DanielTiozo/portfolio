@@ -195,7 +195,7 @@ h3 {
   position: absolute;
   width: 120px;
   height: 300%;
-  bottom: -19vw;
+  bottom: -35vh;
   left: calc(50% - 10vh);
   background: #a2f7ff;
 
@@ -336,7 +336,12 @@ footer{
         height: 19vh;
     }
 
+    .projects::before {
+      bottom: -19vh;
+    }
+
     .contacts-container{
       flex-direction: column;
     }
+
 }
