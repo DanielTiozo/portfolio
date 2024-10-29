@@ -335,4 +335,8 @@ footer{
         width: 78vw;
         height: 19vh;
     }
+
+    .contacts-container{
+      flex-direction: column;
+    }
 }
